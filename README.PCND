@@ -1,0 +1,14 @@
+PCND works for single beads (nanoparticles) on GPU. Does nothing on CPU. Compiled as modified angle potential, not as plugin. 
+
+This BREAKS ANGLE FUNCTIONALITY AS  IS!!!! WIll eventually update with flag to identify when an angle type is a regular angle vs when it is a PCND angle. Probably can be done just through adding a pythin class in angle.py?
+
+Angle must be constructed as such: 
+
+Middle bead in angle is the one on which the potential is applied. It calcualtes a random force independtly in 3 dimensions. 
+
+More work will be needed for a linear polymer equivalent. perhaps a flag can be passed in to specify whether it is a linear force or a single force. That would allow for both. 
+
+
+Installed in /home/andrew/code/hoomd-installs/hoomd-blue_PCNDGPU_AsAngle/lib/python/
+
+cmake ../ -DCMAKE_INSTALL_PREFIX='/home/andrew/code/hoomd-installs/hoomd-blue_PCNDGPU_AsAngle/lib/python/' -DDISABLE_SQLITE=ON -DBUILD_CGCMM=OFF -DBUILD_HPMC=OFF -DBUILD_METAL=OFF -DBUILD_TESTING=OFF -DENABLE_CUDA=ON -DSINGLE_PRECISION=ON -DENABLE_HPMC_MIXED_PRECISION=OFF -DBUILD_DEM=OFF
